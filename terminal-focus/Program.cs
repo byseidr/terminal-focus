@@ -29,16 +29,19 @@ namespace terminal_focus
 
         static void Main(string[] args)
         {
-            Process p = new Process();
-            p.StartInfo.FileName = args[0];
-
-            switch (args[0])
+            if (args.Length > 0)
             {
-                case "wt.exe":
-                    p.StartInfo.Arguments = "-p \"" + args[1] + "\"";
-                    p.Start();
-                    sendKeys(args[1], "+{F11}");
-                    break;
+                Process p = new Process();
+                p.StartInfo.FileName = args[0];
+
+                switch (args[0])
+                {
+                    case "wt.exe":
+                        p.StartInfo.Arguments = "-p \"" + args[1] + "\"";
+                        p.Start();
+                        sendKeys(args[1], "+{F11}");
+                        break;
+                }
             }
         }
     }
